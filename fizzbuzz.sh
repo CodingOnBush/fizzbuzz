@@ -1,20 +1,16 @@
 #!/bin/bash
 
-for i in `seq 1 100`;
-do
-	let "t = i % 3"
-	let "f = i % 5"
-
-	if [ $t -eq 0 ] && [ $f -eq 0 ]
-	then
-        	echo "Fizzbuzz "
-	elif [ $f -eq 0 ]
-	then
-        	echo "Buzz "
-	elif [ $t -eq 0 ]
-	then
-		echo "Fizz "
-	else
-		echo $i
-	fi
+for i in {1..100}; do
+    if ((i % 3 == 0 && i % 5 == 0))
+    then
+        echo -n "FizzBuzz"
+    elif ((i % 3 == 0))
+    then
+        echo -n "Fizz"
+    elif ((i % 5 == 0))
+    then
+        echo -n "Buzz"
+    else
+        echo -n "$i"
+    fi
 done
